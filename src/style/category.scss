@@ -1,0 +1,21 @@
+.contentlist{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    .everyList{
+        width: 33%;
+        height: 100px;
+        text-align: center;
+        border-right: 1px dashed #ddd;
+        border-bottom: 1px dashed #ddd;
+        &:nth-child(3n){
+            border-right: none;
+        }
+        img{
+            width: 60px;
+            height: 60px;
+            border-radius: 50% 50%;
+            margin-top: 15px
+        }
+    }
+}

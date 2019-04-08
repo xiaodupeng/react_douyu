@@ -1,0 +1,23 @@
+.header{
+    height: 38px;
+    line-height: 38px;
+    background: #282828;
+    display: flex;
+    padding: 0 15px;
+    font-size: 16px;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    .left{
+        color: white;
+        i{
+            margin-right: 5px;
+        }
+    }
+    .right{
+        color: #f70
+    }
+}

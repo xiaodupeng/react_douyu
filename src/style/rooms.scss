@@ -1,0 +1,32 @@
+.rooms{
+    padding: 0 8px;
+    .live{
+        width: 150px;
+        height: 100px;
+        float: left;
+        margin: 8px 8px 25px 8px;
+        position: relative;
+       
+        img{
+            width: inherit;
+            height: inherit;
+            border-radius: 3px;
+        }
+        .info{
+            width: inherit;
+            position: absolute;
+            top:80px;
+            color: white;
+            display: flex;
+            padding: 0 5px;
+            box-sizing: border-box;
+            justify-content:space-between;
+        }
+        .live_title{
+            width: inherit;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+        }
+    }
+}
