@@ -20,7 +20,7 @@ class Detail extends Component {
   render() {
     return (
       <div>
-          <iframe className="dy-inframe" frameBorder="0" src={this.state.roomId}/>
+          <iframe title="This is a unique title" className="dy-inframe" frameBorder="0" src={this.state.roomId}/>
       </div>
 
     );

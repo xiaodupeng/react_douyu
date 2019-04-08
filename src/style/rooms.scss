@@ -1,5 +1,6 @@
 .rooms{
     padding: 0 8px;
+    overflow: auto;
     .live{
         width: 150px;
         height: 100px;
@@ -28,5 +29,15 @@
             text-overflow:ellipsis;
             white-space:nowrap;
         }
+    }
+    .addMore{
+        clear: both;
+        width: 70%;
+        height: 30px;
+        line-height: 30px;
+        background: #cccccc;
+        margin: 10px auto;
+        text-align: center;
+        border-radius: 5px;
     }
 }

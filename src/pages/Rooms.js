@@ -3,32 +3,41 @@ import {rooms} from '../api/mobile'
 import PropTypes from 'prop-types';
 import '../style/rooms.scss'
 
+
 class Rooms extends Component {
     constructor(props){
         super(props)
         this.state = {
-           roomId:"",
-           roomList:[]
+            page:1,
+            roomId:"",
+            roomList:[]
         }
     }
     static contextTypes = {
         router: PropTypes.object
     }
     componentDidMount(){
-        this.fetchData(this.props.match.params.name)
+        this.addMore()
     }
 
-    async fetchData(name){
-        await rooms({ page:0, type: name }).then((res)=>{
-            console.log(res)
-            this.setState({
-                roomList:res.data.list
-            })
+    async fetchData(page,name){
+        await rooms({ page:page, type: name }).then((res)=>{
+            if(res.data.list.length !==0){
+                this.setState({
+                    roomList:this.state.roomList.concat(res.data.list)
+                })
+            }else{
+                alert("没有更多数据了")
+            }
         })
     }
 
     goDetail(e,item1){
         this.context.router.history.push('/Detail/' + item1.rid)
+    }
+
+    async addMore(){
+        this.fetchData(this.state.page++,this.props.match.params.name)
     }
 
     render(){
@@ -48,6 +57,10 @@ class Rooms extends Component {
                         )
                     })
                 }
+
+                <div className="addMore" onClick={()=>this.addMore()}>
+                    加载更多
+                </div>
             </div>
         )
     }
