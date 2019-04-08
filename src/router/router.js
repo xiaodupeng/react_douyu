@@ -17,25 +17,15 @@ export default class Root extends Component{
     constructor(props){
         super(props)
         this.state = {
-            showSide:''
+            
         }
-    }
-    show(v){
-        this.setState({
-            showSide:v
-        })
-    }
-    hide(v){
-        this.setState({
-            showSide:v
-        })
     }
     render(){
         return (
             <Router>
                 <div className="content">
-                    <Header getSide = {this.show.bind(this)} />
-                    <Sidebar showSide = {this.state.showSide} hideSide = {this.hide.bind(this)}/>
+                    <Header />
+                    <Sidebar />
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route path="/Detail/:roomId" component={Detail} />

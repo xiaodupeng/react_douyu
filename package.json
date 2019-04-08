@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "events": "^3.0.0",
     "font-awesome": "^4.7.0",
     "http-proxy-middleware": "^0.19.1",
     "lib-flexible": "^0.3.2",

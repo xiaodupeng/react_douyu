@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import '../style/header.scss'
 import { Link } from 'react-router-dom'
+import emitter from '../untils/ev';
 
 class Footer extends Component {
     constructor(){
         super();
         this.state = {
-            showSide:true
+            
         }
     }
     clickIcon(){
-        this.props.getSide(this.state.showSide);
+        emitter.emit('openSide', true);
     }
+
+    
     render() {
         return (
             <div className="header">

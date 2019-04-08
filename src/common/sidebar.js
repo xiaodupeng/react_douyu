@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../style/sidebar.scss'
 import PropTypes from 'prop-types';
 import {classify} from '../api/mobile'
+import emitter from '../untils/ev';
 
 
 class Sidebar extends Component {
@@ -9,7 +10,7 @@ class Sidebar extends Component {
     super(props)
     this.state = {
         sidebarList:[],
-        hideSide:false
+        sideBarState:''
     }
 }
     static contextTypes = {
@@ -21,9 +22,17 @@ class Sidebar extends Component {
             sidebarList:res.data.cate1Info
         })
     })
+
+    emitter.addListener('openSide', (msg) => {
+		this.setState({
+			sideBarState: msg
+		})
+	})
   }
   close(){
-    this.props.hideSide(this.state.hideSide);
+    this.setState({
+        sideBarState:false
+    })
   }
   goCateGory(e,item){
     this.close()
@@ -32,7 +41,7 @@ class Sidebar extends Component {
   render() {
     return (
         <div className="application-sidebar">
-            <div className={`sidebar-container ${this.props.showSide?"show-sidebar":null}`}>
+            <div className={`sidebar-container ${this.state.sideBarState?"show-sidebar":null}`}>
                 <nav>
                     <ul className="sidebar-list">
                         {
@@ -48,7 +57,7 @@ class Sidebar extends Component {
                     </ul>
                 </nav>
             </div>
-            <div className={`${this.props.showSide?"sidebar-overlay":null}`} onClick={(e)=>this.close(e)}></div>
+            <div className={`${this.state.sideBarState?"sidebar-overlay":null}`} onClick={(e)=>this.close(e)}></div>
         </div>
 
     );
